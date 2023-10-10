@@ -40,6 +40,7 @@ export const loginAction = async ({request}: {request: Reqtype}) => {
 
     const response = await fetch(url + "/auth/login", {
         method: "post",
+        credentials: "include",
         headers: {
             "Content-Type": "application/json"
         },
@@ -56,7 +57,7 @@ export const loginAction = async ({request}: {request: Reqtype}) => {
 
 export const logoutAction = async () => {
     const response = await fetch(url + "/auth/logout", {
-        method: "post",
+        method: "get",
     })
     if (response.status > 400){
         alert("Could not log out, please try again")
