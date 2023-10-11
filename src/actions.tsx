@@ -1,11 +1,15 @@
 import url from "./url";
 import { redirect } from "react-router-dom";
 
-interface Reqtype {
+interface Requser {
     formData?: any;
 }
 
-export const signupAction = async ({request}: {request: Reqtype}) => {
+interface Reqshow {
+    formData?:any
+}
+
+export const signupAction = async ({request}: {request: Requser}) => {
     const formData = await request.formData()
 
     const user = {
@@ -30,7 +34,7 @@ export const signupAction = async ({request}: {request: Reqtype}) => {
 }
 
 
-export const loginAction = async ({request}: {request: Reqtype}) => {
+export const loginAction = async ({request}: {request: Requser}) => {
     const formData = await request.formData()
 
     const user = {
@@ -65,4 +69,45 @@ export const logoutAction = async () => {
     }
 
     return redirect("/")
+}
+
+// showName: String, 
+// yearWatched: String,
+// showImage : String, 
+// intrestLevel : Number,
+// wouldRecommend: Boolean,
+// description : String, 
+
+
+export const createAction = async ({request}: {request:Reqshow}) => {
+    const formData = await request.formData()
+    
+    const show = {
+        showName: formData.get("showName"),
+        yearWatched: formData.get("yearWatched"),
+        showImage: formData.get("showImage"),
+        rating: formData.get("rating"),
+        wouldRecommend: formData.get("wouldRecommend"),
+        description: formData.get("description")
+    }
+    if (show.wouldRecommend === "on"){
+        show.wouldRecommend = true
+    }
+    console.log(show)
+
+    const response = await fetch(url + "/show", {
+        method: "post",
+        credentials: "include",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(show)
+    })
+
+    if (response.status === 400){
+        alert("Create faild")
+        return redirect("/dashboard")
+    }
+
+    return redirect("/Dashboard")
 }
