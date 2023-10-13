@@ -23,7 +23,7 @@ const Index = () => {
     console.log(shows)
     return <div>
         <Form action="/logout" method="post"> <button>logout</button></Form> 
-        <Link to="/dashboard/create">Create Show</Link>
+       
         {shows.map((show) => <div>
             <h1>{show.showName}</h1>
             <Link to={`/dashboard/${show._id}`}><h1>{show.showName}</h1></Link>
