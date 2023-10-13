@@ -1,3 +1,3 @@
-const url="'https://top-rated-front.vercel.app"
+const url="https://top-rated-nda2.onrender.com"
 
 export default url
