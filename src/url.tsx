@@ -1,3 +1,3 @@
-const url="http://localhost:4000"
+const url="'https://top-rated-front.vercel.app"
 
 export default url
