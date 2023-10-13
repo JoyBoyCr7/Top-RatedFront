@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom"
+import { useLoaderData, Form, Link } from "react-router-dom"
 
 // showName: String,  
     // yearWatched: String,
@@ -14,15 +14,19 @@ interface showtype{
     intrestLevel : number,
     wouldRecommend: boolean,
     Description : string, 
-    userName : string
+    userName : string,
+    _id: string
 }
 
 const Index = () => {
     const shows = useLoaderData() as showtype[]
     console.log(shows)
     return <div>
+        <Form action="/logout" method="post"> <button>logout</button></Form> 
+        <Link to="/dashboard/create">Create Show</Link>
         {shows.map((show) => <div>
             <h1>{show.showName}</h1>
+            <Link to={`/dashboard/${show._id}`}><h1>{show.showName}</h1></Link>
         </div>)}
     </div>
 }
