@@ -26,7 +26,7 @@ const Index = () => {
        
         {shows.map((show) => <div>
             <h1>{show.showName}</h1>
-            <Link to={`/dashboard/${show._id}`}><h1>{show.showName}</h1></Link>
+            <Link to={`/dashboard/${show._id}`}><img src={show.showImage}/></Link>
         </div>)}
     </div>
 }
