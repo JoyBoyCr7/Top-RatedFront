@@ -9,8 +9,10 @@ import Index from "./pages/Index";
 import Create from "./pages/Create";
 import Show from "./pages/Show";
 import Update from "./pages/Update";
+import Welcome from "./pages/Welcome";
 const router = createBrowserRouter(createRoutesFromElements(
     <Route path="/" element={<App/>}>
+        <Route path="" element={<Welcome/>}/>
         <Route path="/signup" element={<Signup/>} action={signupAction}/>
         <Route path="/login" element={<Login/>} action={loginAction}/>
         <Route path="/logout" action={logoutAction}/>

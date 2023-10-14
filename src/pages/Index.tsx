@@ -22,9 +22,8 @@ const Index = () => {
     const shows = useLoaderData() as showtype[]
     console.log(shows)
     return <div>
-        <Form action="/logout" method="post"> <button>logout</button></Form> 
        
-        {shows.map((show) => <div>
+        {shows.map((show) => <div key={show._id}>
             <h1>{show.showName}</h1>
             <Link to={`/dashboard/${show._id}`}><img src={show.showImage}/></Link>
         </div>)}
