@@ -15,6 +15,7 @@ const Show = () => {
     const show = useLoaderData() as showtype;
     console.log(show)
     return <div>
+        <Link to={"/dashboard"}><button>Home</button></Link>
         <h2>{show.showName}</h2>
         <p>{show.description}</p>
         <h2>{show.yearWatched}</h2>
