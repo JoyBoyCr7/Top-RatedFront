@@ -56,6 +56,8 @@ export const loginAction = async ({request}: {request: Requser}) => {
         return redirect("/login")
     }
 
+    localStorage.setItem("Loggedin", "true")
+
     return redirect("/Dashboard")
 }
 
@@ -68,6 +70,7 @@ export const logoutAction = async () => {
         return redirect("/dashboard")
     }
 
+    localStorage.removeItem("loggedIn")
     return redirect("/")
 }
 
