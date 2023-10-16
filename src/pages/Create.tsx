@@ -1,5 +1,11 @@
 import { Form } from "react-router-dom"
+import StarRating from "../components/Stars"
+import { useState } from "react"
 const Create = () => {
+    const [rating, setRating] = useState<number | null>(null)
+  const changeRating = (newRating:any) => {
+    setRating(newRating);
+  };
     return <Form action="/dashboard/create" method="post">
     <div className="form">
     <div className="group">
@@ -10,10 +16,10 @@ const Create = () => {
       <input type="date" name="yearWatched" placeholder="‎"></input>
       <label >Year Watched</label>
     </div>
-    <div className="group">
-    <input type="text" name="rating" placeholder="‎"></input>
+    {/* <div className="group">
+    <input type="text" name="rating" placeholder="‎" value={rating}></input>
       <label >Rating</label>
-      </div>
+      </div> */}
     <div className="group">
     <input type="text" name="wouldRecommend" placeholder="‎"></input>
       <label >Would recomend</label>
@@ -26,6 +32,7 @@ const Create = () => {
       <textarea placeholder="‎" id="comment" name="description"  required></textarea>
       <label >Description</label>
   </div>
+  <StarRating changeRating={changeRating} rating={rating}/>
       <button type="submit">ADD Show</button>
     </div>
   </Form>

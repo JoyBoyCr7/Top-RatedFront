@@ -10,6 +10,7 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { red } from '@mui/material/colors';
+import Starfrozen from './Frozenstars';
 // import FavoriteIcon from '@mui/icons-material/Favorite';
 // import ShareIcon from '@mui/icons-material/Share';
 // import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -20,7 +21,7 @@ interface showtype{
     showName: string
     yearWatched: string,
     showImage : string, 
-    intrestLevel : number,
+    rating : number,
     wouldRecommend: boolean,
     description : string, 
     userName : string,
@@ -48,7 +49,7 @@ export default function ShowCard({show}:{show:showtype}) {
 //   const handleExpandClick = () => {
 //     setExpanded(!expanded);
 //   };
-
+const rating = show.rating
   return (
     <Card sx={{ maxWidth: 345 }} className='here its me!'>
       <CardHeader
@@ -73,7 +74,7 @@ export default function ShowCard({show}:{show:showtype}) {
       />
       <CardContent>
         <Typography variant="body2" color="text.secondary">
-          {show.description}
+          {<Starfrozen rating={rating}/>}
         </Typography>
       </CardContent>
     </Card>

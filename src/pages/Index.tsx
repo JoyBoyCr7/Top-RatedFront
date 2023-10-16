@@ -17,7 +17,7 @@ interface showtype{
     showName: string
     yearWatched: string,
     showImage : string, 
-    intrestLevel : number,
+    rating : number,
     wouldRecommend: boolean,
     description : string, 
     userName : string,
