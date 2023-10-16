@@ -41,7 +41,7 @@ const Index = () => {
     alignItems="center">
             
         {shows.map((show) => 
-            <Grid xs={3} sm={3} md={3} m={1} >
+            <Grid item xs={3} sm={3} md={3} m={1} key={show._id} >
             <Link to={`/dashboard/${show._id}`}> <ShowCard show={show}/></Link>
             </Grid>
         )}
