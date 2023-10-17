@@ -1,4 +1,4 @@
-import { useLoaderData, Link, Outlet } from "react-router-dom"
+import { useLoaderData, Link, Outlet, Form } from "react-router-dom"
 
 interface showtype{
     showName : string
@@ -48,7 +48,7 @@ const Show = () => {
           </Link>
         </div> */}
         <Outlet />
-        {/* <Form action={`/dashboard/${show._id}/delete`} method="post"><button>Delete</button></Form> */}
+        <Form action={`/dashboard/${show._id}/delete`} method="post"><button>Delete</button></Form>
       </div>
     );
   }

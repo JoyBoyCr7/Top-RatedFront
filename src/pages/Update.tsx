@@ -1,6 +1,7 @@
 import { Form, useLoaderData } from "react-router-dom"
 import { useState } from "react"
 import Finalstar from "../components/Finalstar"
+
 interface showtype{
     showName : string
     yearWatched : string,
@@ -14,6 +15,14 @@ interface showtype{
 
 
 const Update = () => {
+
+    const [isChecked, setIsChecked] = useState(false);
+
+  const CheckboxChange = () => {
+    setIsChecked(!isChecked); 
+  };
+
+
     const show = useLoaderData() as showtype
     function worker(){
         console.log(show)
@@ -38,22 +47,29 @@ const Update = () => {
     </div>
     <div className="group">
     <input type="text" name="rating" placeholder="‎"  style={{display: 'none'}} value={rating ? rating: '0' }></input>
-      <label >Rating</label>
       </div>
-    <div className="group">
-    <input type="text" name="wouldRecommend" placeholder="‎" ></input>
-      <label >Would recommend</label>
-    </div>
+
   <div className="group">
-      <input placeholder="‎" type="text" id="email" name="showImage" required/>
+      <input placeholder="‎" type="text" id="email" name="showImage" defaultValue={show.showImage} required/>
       <label >Show image</label>
       </div>
   <div className="group">
-      <textarea placeholder="‎" id="comment" name="description"  required></textarea>
+      <textarea placeholder="‎" id="comment" name="description" defaultValue={show.description}  required></textarea>
       <label >Description</label>
   </div>
+
+
+  <div className="group" style={{color:"black" , display:"flex"}} >
+    <label>Would Recommend: <input type="checkbox"  checked={isChecked} style={{ all: "revert"}}
+        onChange={CheckboxChange} placeholder="‎"></input></label>
+    </div>
+
+    <div className="group">
+    <input type="text" name="wouldRecommend" placeholder="‎"  style={{display: 'none'}} value={`${isChecked}`} readOnly={true}></input>
+      </div>
+
   <Finalstar changeRating={changeRating} rating={rating}/>
-      <button type="submit" onClick={worker}>ADD Show</button>
+      <button type="submit" onClick={worker}>Update Show</button>
     </div>
   </Form>
   
