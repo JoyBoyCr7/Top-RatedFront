@@ -1,27 +1,27 @@
-# React + TypeScript + Vite
+# Capstone PROJECT 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- **Project Name:** Top Rated 
+- **Project By:** Ronard Nyongkah
+- [**LINK TO GITHUB**](https://github.com/JoyBoyCr7/Top-Rated)
+- [**LINK TO DEPLOYED WEBSITE**](https://top-rated.vercel.app/)
+- **List of Technologies used:** JS, TypeScript, React, HTML, CSS, Node, Mongo, Express, Vite, MUI
+- [**LINK TO TRELLO**]()
 
-Currently, two official plugins are available:
+## Description
+This app is an app that allows the user to keep track of the shows they have watched throughout their lives. It allows the user to document when they completed the show and rate the show on a scale of 1 to 5 stars.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## List of Backend Endpoints
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+| ENDPOINT | METHOD | PURPOSE |
+|----------|--------|---------|
+| / | Get | Show all shows |
+|/:id | Get | Show one show|
+|/create | Post |Add a new show |
+|/update/:id | Put | Update a show's data |
+|/delete/:id | Delete | Remove a show from the DB list|
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Mock UP of UI
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+![](https://s3.amazonaws.com/assets.mockflow.com/app/wireframepro/company/C7383031535df471882a6c5129929f7e9/projects/M2g7Rdc8Jh/pages/8248484026cf4b98a087bf22731b11dd/image/8248484026cf4b98a087bf22731b11dd.png?1696106876321)
