@@ -2,7 +2,7 @@ import { Form } from "react-router-dom"
 import StarRating from "../components/Stars"
 import { useState } from "react"
 const Create = () => {
-    const [rating, setRating] = useState<number | null>(null)
+  const [rating, setRating] = useState<number | null>(null)
   const changeRating = (newRating:any) => {
     setRating(newRating);
   };

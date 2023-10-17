@@ -1,4 +1,4 @@
-import { useLoaderData, Link, Form, Outlet } from "react-router-dom"
+import { useLoaderData, Link, Outlet } from "react-router-dom"
 
 interface showtype{
     showName : string
@@ -13,16 +13,46 @@ interface showtype{
 
 const Show = () => {
     const show = useLoaderData() as showtype;
-    console.log(show)
-    return <div>
-        <Link to={"/dashboard"}><button>Home</button></Link>
-        <h2>{show.showName}</h2>
-        <p>{show.description}</p>
-        <h2>{show.yearWatched}</h2>
-        <Link to={`/dashboard/${show._id}/update`}><button>Update</button></Link>
-        <Outlet/>
-        <Form action={`/dashboard/${show._id}/delete`} method="post"><button>Delete</button></Form>
-    </div>
-}
+    console.log("here1")
+    console.log(show);
+  
+    function handleUpdateClick() {
+      const target = document.getElementById("showdiv");
+      if (target) {
+        target.style.display = "flex";
+      }
+    }
+  
+    return (
+      <div className="showdiv" id="showdiv" style={{gap:"40px"}}>
+        <div className="card">
+            <div className="card-image" style={{backgroundImage:`url(${show.showImage})`}} ></div>
+            <p className="card-title" style={{textAlign:"left"}}>{show.showName}</p>
+            <p className="card-body" style={{textAlign:"left"}}>
+                {show.description}
+            </p>
+            <p className="footer" style={{textAlign:"right"}}>Finished on <span className="date">{show.yearWatched}</span></p>
+            <Link to={`/dashboard/${show._id}/update`}>
+            <button onClick={handleUpdateClick}>Update</button>
+          </Link>
+        </div>
+        {/* <div>
+          <Link to={"/dashboard"}>
+            <button>Home</button>
+          </Link>
+          <h2>{show.showName}</h2>
+          <p>{show.description}</p>
+          <h2>{show.yearWatched}</h2>
+          <Link to={`/dashboard/${show._id}/update`}>
+            <button onClick={handleUpdateClick}>Update</button>
+          </Link>
+        </div> */}
+        <Outlet />
+        {/* <Form action={`/dashboard/${show._id}/delete`} method="post"><button>Delete</button></Form> */}
+      </div>
+    );
+  }
+  
+
 
 export default Show
