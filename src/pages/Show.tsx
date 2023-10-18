@@ -31,10 +31,11 @@ const Show = () => {
             <p className="card-body" style={{textAlign:"left"}}>
                 {show.description}
             </p>
-            <p className="footer" style={{textAlign:"right"}}>Finished on <span className="date">{show.yearWatched}</span></p>
+            <p className="footer" style={{textAlign:"right"}}>Finished <span className="date">{show.yearWatched}</span></p>
             <Link to={`/dashboard/${show._id}/update`}>
             <button onClick={handleUpdateClick}>Update</button>
           </Link>
+          <Form action={`/dashboard/${show._id}/delete`} method="post"><button>Delete</button></Form>
         </div>
         {/* <div>
           <Link to={"/dashboard"}>
@@ -48,7 +49,6 @@ const Show = () => {
           </Link>
         </div> */}
         <Outlet />
-        <Form action={`/dashboard/${show._id}/delete`} method="post"><button>Delete</button></Form>
       </div>
     );
   }

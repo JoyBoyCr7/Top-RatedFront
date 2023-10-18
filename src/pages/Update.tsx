@@ -46,7 +46,7 @@ const Update = () => {
       <label >Year Watched</label>
     </div>
     <div className="group">
-    <input type="text" name="rating" placeholder="‎"  style={{display: 'none'}} value={rating ? rating: '0' }></input>
+    <input type="text" name="rating" placeholder="‎"  style={{display: 'none'}} value={rating ? rating: '0' } readOnly={true}></input>
       </div>
 
   <div className="group">
