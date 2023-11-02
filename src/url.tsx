@@ -1,3 +1,3 @@
-const url="https://top-rated-nda2.onrender.com"
+const url="http://localhost:4000"
 
 export default url
